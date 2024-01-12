@@ -1,0 +1,16 @@
+<app-currencies-converter
+  headTitle="Currency Converter"
+></app-currencies-converter>
+<hr />
+
+<div class="row">
+  @for (currency of popularCurrencies; track $index) {
+  <div class="col-6 col-sm-4">
+    <app-currency-card
+      [toCurrency]="currency"
+      [baseCurrency]="baseCurrency"
+      [amount]="amount"
+    ></app-currency-card>
+  </div>
+  }
+</div>

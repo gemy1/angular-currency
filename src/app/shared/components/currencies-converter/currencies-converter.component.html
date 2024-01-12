@@ -1,0 +1,73 @@
+<div class="mt-4 card">
+  <div class="card-header text-center">{{ headTitle }}</div>
+  <div class="card-body">
+    <form (ngSubmit)="onConvert()" #f="ngForm">
+      <div class="d-flex flex-md-nowrap flex-wrap">
+        <div class="m-1">
+          <div class="input-group">
+            <span class="input-group-text">Amount</span>
+            <input
+              type="number"
+              class="form-control"
+              name="amount"
+              ngModel
+              required
+            />
+          </div>
+          <div>1 {{ fromCurrency }} = {{ rate && rate }} {{ toCurrency }}</div>
+        </div>
+        <div class="w-100">
+          <div class="input-group">
+            <label class="input-group-text">From</label>
+            <select class="form-select" name="from" [ngModel]="fromCurrency">
+              @for (code of currenciesCodes; track $index) {
+              <option value="{{ code }}">
+                {{ code }}
+              </option>
+              }
+            </select>
+          </div>
+          <button
+            *ngIf="!inDetails"
+            type="button"
+            class="btn btn-outline-primary btn-sm my-2"
+            (click)="onSwap()"
+          >
+            Swap
+          </button>
+
+          <div class="input-group">
+            <label class="input-group-text">To</label>
+            <select class="form-select" name="to" [ngModel]="toCurrency">
+              @for (code of currenciesCodes; track $index) {
+              <option value="{{ code }}">
+                {{ code }}
+              </option>
+              }
+            </select>
+          </div>
+          <button
+            [disabled]="!f.valid"
+            type="submit"
+            class="btn w-100 btn-primary my-2"
+          >
+            Convert
+          </button>
+
+          <div>
+            {{ result }} {{ toCurrency }}
+            <span>
+              <button
+                *ngIf="!inDetails"
+                type="button"
+                class="btn btn-primary btn-sm my-2"
+              >
+                More Details
+              </button></span
+            >
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
