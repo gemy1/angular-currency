@@ -1,4 +1,12 @@
+<div>
+  <button class="btn btn-primary mt-2" (click)="goBack()">Go Back</button>
+</div>
 <app-currencies-converter
-  headTitle="EUR Currensy"
+  [headTitle]="fromCurrency | fullName"
   [inDetails]="true"
+  [amount]="amount"
+  [fromCurrency]="fromCurrency"
+  [toCurrency]="toCurrency"
 ></app-currencies-converter>
+<hr />
+<app-historical-chart></app-historical-chart>

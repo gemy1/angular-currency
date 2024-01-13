@@ -10,8 +10,10 @@
               type="number"
               class="form-control"
               name="amount"
-              ngModel
+              [ngModel]="amount"
               required
+              #amountRef
+              pattern="^[1-9]\d*$"
             />
           </div>
           <div>1 {{ fromCurrency }} = {{ rate && rate }} {{ toCurrency }}</div>
@@ -61,6 +63,12 @@
                 *ngIf="!inDetails"
                 type="button"
                 class="btn btn-primary btn-sm my-2"
+                routerLink="/details"
+                [queryParams]="{
+                  from: fromCurrency,
+                  to: toCurrency,
+                  amount: amountRef.value
+                }"
               >
                 More Details
               </button></span

@@ -3,12 +3,28 @@
     <a class="navbar-brand h1" routerLink="/">LOGO</a>
     <ul class="navbar-nav d-flex flex-row gap-10">
       <li class="nav-item mx-3">
-        <a class="nav-link active" aria-current="page" routerLink="/details"
+        <a
+          class="nav-link active"
+          aria-current="page"
+          routerLink="/details"
+          [queryParams]="{
+            from: 'EUR',
+            to: 'USD',
+            amount: 1
+          }"
           >EUR - USD Details</a
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" routerLink="/details"
+        <a
+          class="nav-link active"
+          aria-current="page"
+          routerLink="/details"
+          [queryParams]="{
+            from: 'EUR',
+            to: 'GBP',
+            amount: 1
+          }"
           >EUR - GBP Details</a
         >
       </li>

@@ -19,6 +19,7 @@ export class currenciesConverterComponent implements OnInit, AfterViewInit {
   @Input() headTitle: string | undefined;
   @Input() fromCurrency: string = 'EUR';
   @Input() toCurrency: string = 'USD';
+  @Input() amount: number = 0;
   @Input() inDetails!: boolean;
   // local properties
   rate: string | null = null;

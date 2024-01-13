@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyCardComponent } from './pages/home/currency-card/currency-card.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { FullNamePipe } from './pages/details/pipes/full-name.pipe';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { HistoricalChartComponent } from './pages/details/components/historical-chart/historical-chart.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +24,16 @@ import { FooterComponent } from './layout/footer/footer.component';
     currenciesConverterComponent,
     CurrencyCardComponent,
     FooterComponent,
+    FullNamePipe,
+    HistoricalChartComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    NgApexchartsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

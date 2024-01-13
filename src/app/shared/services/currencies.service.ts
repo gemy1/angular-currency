@@ -3,15 +3,14 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { currencies } from '../../data/constants/currencies.constant';
 import { CurrencyRates } from '../../data/interfaces/currencies.interface';
-import { Observable, Subject, map } from 'rxjs';
+import { map } from 'rxjs';
 import { CurrencyApiResponse } from '../../data/interfaces/CurrencyApiResponse.interface';
+import { API_URL } from '../../data/constants/api-url';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CurrenciesService {
-  private fixerApi = environment.fixerApi;
-
   private currenciesRates: CurrencyRates = currencies;
   // base currency Event Emitter
   baseCurrency: EventEmitter<string> = new EventEmitter();
@@ -23,14 +22,15 @@ export class CurrenciesService {
   // fetch latest rates
   fetchCurrenciesRates() {
     return this.http
-      .get<CurrencyApiResponse>(
-        `http://data.fixer.io/api/latest?access_key=${this.fixerApi}&format=1`
-      )
+      .get<CurrencyApiResponse>(API_URL)
       .pipe(
         map((response) => {
           return response.rates;
         })
-      );
+      )
+      .subscribe((rates) => {
+        this.currenciesRates = rates;
+      });
   }
 
   // retuen the total amount converted
