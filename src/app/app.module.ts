@@ -14,6 +14,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { FullNamePipe } from './pages/details/pipes/full-name.pipe';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { HistoricalChartComponent } from './pages/details/components/historical-chart/historical-chart.component';
+import { HighlightResultDirective } from './shared/directives/highlight-result.directive';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HistoricalChartComponent } from './pages/details/components/historical-
     FooterComponent,
     FullNamePipe,
     HistoricalChartComponent,
+    HighlightResultDirective,
   ],
   imports: [
     BrowserModule,
