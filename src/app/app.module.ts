@@ -10,6 +10,7 @@ import { currenciesConverterComponent } from './shared/components/currencies-con
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyCardComponent } from './pages/home/currency-card/currency-card.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CurrencyCardComponent } from './pages/home/currency-card/currency-card.
     DetailsComponent,
     currenciesConverterComponent,
     CurrencyCardComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
